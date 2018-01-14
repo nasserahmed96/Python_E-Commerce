@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+<style>
+img{
+	width:100%;
+}
+</style>
+	</head>
+	
+	<body>
+		<h1>{{ message }}</h1>
+		<center>
+		<img src="{% static "Design/banner.png" %}"/>
+		<H1>Welcome to Medical device company</H1>
+		<table>
+			<tr>
+				<th><a href="{% url 'MDC_Website:showProducts' %}">Products</a></th>
+				<th><a href="{% url 'MDC_Website:login' %}">Login</th>
+				<th><a href="{% url 'MDC_Website:register' %}">Register</a></th>
+				<th><a href="{% url 'MDC_Website:logout' %}">Logout</a></th>
+				<th><a href="{% url 'MDC_Website:account' %}">Account</a></th>
+			</tr>
+		</table>
+		</center>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
+

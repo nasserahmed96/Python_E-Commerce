@@ -1,0 +1,15 @@
+{% extends "MDC_Website/MDC_Home.html" %}
+{% load staticfiles %}
+	{% block title %}Products{% endblock %}
+	{% block content %}
+		<table>
+			{% for product_id,product_name,product_price,product_description,product_image in products %}
+			<tr>
+				<th><p>Product name: </p><a href="{% url 'MDC_Website:viewProduct' product_id %}">{{product_name}}</a></th>
+				<th><p>product price: {{product_price}} </p></th>
+				<th><p>product description: {{product_description}} </p></th>
+				<th><img src="{{ product_image }}" ></th>
+			</tr>	
+			{% endfor %}
+		</table>
+		{% endblock %}

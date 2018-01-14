@@ -1,0 +1,19 @@
+{% extends "MDC_Website/MDC_Home.html" %}
+
+{% block title %}{{ prduct_name }} {% endblock %}
+
+{% block content %}
+<h1>{{ message }}</h1>
+{% for product_name, product_price, product_describtion, product_image in product %}
+<img src="{{ product_image }}">
+<p>Product name: {{product_name}}</p>
+<p>Product price: {{ product_price }}</p>
+<p>Product describtion: {{ product_describtion }}</p>
+<p>Product ID: {{ product_id }}</p>
+ <form action="{% url 'MDC_Website:viewProduct' product_id %}" method="post">
+	{% csrf_token %} 
+	<input type="submit" value="buy">
+ </form>
+{% endfor %}
+
+{% endblock %}

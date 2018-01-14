@@ -1,0 +1,13 @@
+{% extends "MDC_Website/MDC_Home.html" %}
+{% block content %}
+<p>{{message}}</p>
+<table>
+{% for order_id, product_id in products %}
+<tr>
+	<th><p>Order ID {{order_id}}</p></th>
+	<th><p>Product ID {{product_id}}</p></th>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+

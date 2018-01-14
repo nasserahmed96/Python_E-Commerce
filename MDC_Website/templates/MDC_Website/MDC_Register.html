@@ -1,0 +1,20 @@
+{% extends "MDC_Website/MDC_Home.html" %}
+{% block title %}Login{% endblock %}
+		<h1>{{ welcome_message }}</h1>
+		{% block content %}
+		<center>
+			<form action="{% url 'MDC_Website:register' %}" method="post">
+				{% csrf_token %}
+				<table>
+					{% for field in form %}
+					<tr>
+						<th>{{ field.errors }}</th>
+						<th>{{ field.label_tag }}</th>
+						<th>{{ field }}</th>
+					</tr>
+					{% endfor %}
+				</table>
+				<input type="submit" value="Save">
+			</form>
+		</center>
+		{% endblock %}
